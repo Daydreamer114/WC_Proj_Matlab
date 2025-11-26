@@ -38,19 +38,19 @@ clear; clc; close all;
 
 % Initial parameter values
 params.initialNRSplit = 0.5;
-params.upperBound = 0.9;
-params.lowerBound = 0.5;
-params.allocStep = 0.05;
+params.upperBound = 0.8;
+params.lowerBound = 0.4;
+params.allocStep = 0.2;
 
 % Parameter names and initial step sizes (for binary search range initialization)
 paramNames = {'initialNRSplit', 'upperBound', 'lowerBound', 'allocStep'};
-initialSteps = [0.1, 0.1, 0.1, 0.02];  % Initial range half-width for binary search
+initialSteps = [0.3, 0.2, 0.2, 0.1];  % Initial range half-width for binary search
 
 % Bounds for each parameter [min, max]
 paramBounds = [0.1, 0.9;   % initialNRSplit
                0.6, 1.0;   % upperBound
                0.0, 0.4;   % lowerBound
-               0.01, 0.2]; % allocStep
+               0.001, 0.4]; % allocStep
 
 % Optimization settings
 epsilon = 0.001;  % Binary search stopping criterion
