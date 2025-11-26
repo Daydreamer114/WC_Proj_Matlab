@@ -1,3 +1,5 @@
+clear; clc; close all;
+
 % Dynamic Spectrum Sharing Simulation for 4G (LTE) and 5G (NR) on the Same Carrier
 % This script simulates dynamic spectrum sharing between LTE and NR using MATLAB's LTE Toolbox and 5G Toolbox.
 % It implements a load-aware partitioning policy that adapts the spectrum split based on NR occupancy.
@@ -34,8 +36,9 @@ trafficMixes = [0.3, 0.5, 0.7];% Proportions of NR users to simulate (vary traff
 mobilitySpeeds = [0, 3, 120];  % User speeds in km/h (vary mobility: static, low, high)
 
 % Channel Parameters
-snrDB = 10;                    % Average SNR in dB
+snrDB = 30;                    % Average SNR in dB (increased for realistic positive values)
 pathLossModel = 'urban';       % Path loss model: 'urban', 'rural', etc. (simplified)
+minThroughputThreshold = 50;   % Minimum throughput threshold for blocking detection (kbps)
 
 % How to Tune:
 % - Change initialNRSplit, upperBound, lowerBound, allocStep to adjust the adaptive policy.
@@ -44,6 +47,7 @@ pathLossModel = 'urban';       % Path loss model: 'urban', 'rural', etc. (simpli
 % - Add more values to trafficMixes or mobilitySpeeds to explore additional scenarios.
 % - Adjust numUsers to scale the load.
 % - Tune snrDB or pathLossModel for different channel conditions.
+% - Adjust minThroughputThreshold to fine-tune blocking sensitivity.
 
 %% Simulation Setup
 % Initialize results storage
@@ -77,18 +81,21 @@ for mixIdx = 1:length(trafficMixes)
         for sf = 1:numSubframes
             % Update positions based on mobility
             userPositions = userPositions + (userVelocities * 0.001); % 1ms subframe, speed in m/s
+            userPositions = mod(userPositions, 1000); % Boundary handling: wrap around to stay in cell
             
-            % Calculate distances and path losses (simplified)
+            % Calculate distances and path losses (simplified, updated model)
             distances = sqrt(sum(userPositions.^2, 2)); % Distance from BS at (0,0)
+            distances_km = distances / 1000;  % Convert to km
             if strcmp(pathLossModel, 'urban')
-                pathLosses = 35 * log10(distances) + 35; % Simplified urban model in dB
+                pathLosses = 32.4 + 20 * log10(2) + 30 * log10(distances_km + 0.01);  % 3GPP-like urban model, +0.01 to avoid log(0)
             else
-                pathLosses = 30 * log10(distances) + 40; % Fallback
+                pathLosses = 28.0 + 22 * log10(distances_km + 0.01);  % Rural fallback
             end
             userSNRs = snrDB - pathLosses;
             
             % Estimate capacities using Shannon (approx throughput per user if scheduled)
             capacities = log2(1 + 10.^(userSNRs/10)); % bps/Hz
+            capacities = max(capacities, 0.1); % Minimum capacity floor to avoid underflow
             
             % Resource allocation: Split resources based on current split
             lteResources = lteBandwidth * 180; % Approx PRBs (180 kHz per PRB)
@@ -111,13 +118,18 @@ for mixIdx = 1:length(trafficMixes)
             end
             
             % Check for blocking: If demand exceeds resources (simplified threshold)
-            if mean(lteUserThroughputs) < 100 || mean(nrUserThroughputs) < 100 % Threshold 100 kbps
+            if ~isempty(lteUserThroughputs) && mean(lteUserThroughputs) < minThroughputThreshold || ...
+               ~isempty(nrUserThroughputs) && mean(nrUserThroughputs) < minThroughputThreshold
                 blockedUsers = blockedUsers + 1;
             end
             
             % Accumulate throughputs
-            userThroughputs(1:numLTEUsers) = userThroughputs(1:numLTEUsers) + lteUserThroughputs / numSubframes;
-            userThroughputs(numLTEUsers+1:end) = userThroughputs(numLTEUsers+1:end) + nrUserThroughputs / numSubframes;
+            if numLTEUsers > 0
+                userThroughputs(1:numLTEUsers) = userThroughputs(1:numLTEUsers) + lteUserThroughputs / numSubframes;
+            end
+            if numNRUsers > 0
+                userThroughputs(numLTEUsers+1:end) = userThroughputs(numLTEUsers+1:end) + nrUserThroughputs / numSubframes;
+            end
             
             % Monitor NR occupancy (simplified as fraction of used NR resources)
             nrOccupancy = min(1, numNRUsers * mean(nrCapacities) / (nrBandwidth * log2(1 + 10^(snrDB/10))));
