@@ -53,9 +53,9 @@ paramBounds = [0.1, 0.9;   % initialNRSplit
                0.001, 0.4]; % allocStep
 
 % Optimization settings
-epsilon = 0.001;  % Binary search stopping criterion
-maxIter = 20;     % Max binary search iterations per parameter
-numOptCycles = 5; % Number of full cycles over all parameters (for multi-pass refinement)
+epsilon = 0.0001;  % Binary search stopping criterion
+maxIter = 50;     % Max binary search iterations per parameter
+numOptCycles = 20; % Number of full cycles over all parameters (for multi-pass refinement)
 
 % Display initial parameters
 fprintf('Starting Optimization with Initial Parameters:\n');
