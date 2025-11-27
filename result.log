@@ -1,0 +1,116 @@
+Starting Optimization with Initial Parameters:
+    initialNRSplit: 0.5000
+        upperBound: 0.8000
+        lowerBound: 0.4000
+         allocStep: 0.2000
+
+
+Optimization Cycle 1/20
+  Optimized initialNRSplit: 0.8001 (Score: 3083.9810)
+  Optimized upperBound: 0.7382 (Score: 3098.1765)
+  Optimized lowerBound: 0.1673 (Score: 3206.0561)
+  Optimized allocStep: 0.2631 (Score: 3144.8381)
+Optimization Cycle 2/20
+  Optimized initialNRSplit: 0.5745 (Score: 3213.2952)
+  Optimized upperBound: 0.9543 (Score: 3144.5016)
+  Optimized lowerBound: 0.0074 (Score: 4343.5836)
+  Optimized allocStep: 0.2300 (Score: 4105.7415)
+Optimization Cycle 3/20
+  Optimized initialNRSplit: 0.5226 (Score: 4487.6665)
+  Optimized upperBound: 0.9318 (Score: 4555.4373)
+  Optimized lowerBound: 0.0419 (Score: 4788.0760)
+  Optimized allocStep: 0.0757 (Score: 4567.1668)
+Optimization Cycle 4/20
+  Optimized initialNRSplit: 0.5350 (Score: 4710.1871)
+  Optimized upperBound: 0.8434 (Score: 4473.3554)
+  Optimized lowerBound: 0.0119 (Score: 4576.4199)
+  Optimized allocStep: 0.2030 (Score: 4359.5330)
+Optimization Cycle 5/20
+  Optimized initialNRSplit: 0.4969 (Score: 4341.3701)
+  Optimized upperBound: 0.8820 (Score: 4740.0774)
+  Optimized lowerBound: 0.0094 (Score: 4366.8108)
+  Optimized allocStep: 0.0289 (Score: 4514.1265)
+Optimization Cycle 6/20
+  Optimized initialNRSplit: 0.5131 (Score: 4620.4329)
+  Optimized upperBound: 0.6721 (Score: 4715.2740)
+  Optimized lowerBound: 0.0580 (Score: 4578.1496)
+  Optimized allocStep: 0.0191 (Score: 4554.0627)
+Optimization Cycle 7/20
+  Optimized initialNRSplit: 0.5058 (Score: 4553.2081)
+  Optimized upperBound: 0.6267 (Score: 3881.1423)
+  Optimized lowerBound: 0.0300 (Score: 4654.0008)
+  Optimized allocStep: 0.0999 (Score: 4680.7068)
+Optimization Cycle 8/20
+  Optimized initialNRSplit: 0.5124 (Score: 4366.8617)
+  Optimized upperBound: 0.7545 (Score: 4485.5772)
+  Optimized lowerBound: 0.0619 (Score: 4721.1508)
+  Optimized allocStep: 0.0262 (Score: 4408.6624)
+Optimization Cycle 9/20
+  Optimized initialNRSplit: 0.4658 (Score: 4268.3920)
+  Optimized upperBound: 0.8424 (Score: 4682.4593)
+  Optimized lowerBound: 0.0207 (Score: 4428.9408)
+  Optimized allocStep: 0.1166 (Score: 4559.0485)
+Optimization Cycle 10/20
+  Optimized initialNRSplit: 0.5308 (Score: 4520.1696)
+  Optimized upperBound: 0.6667 (Score: 4737.8121)
+  Optimized lowerBound: 0.0634 (Score: 3755.3183)
+  Optimized allocStep: 0.1770 (Score: 4181.5664)
+Optimization Cycle 11/20
+  Optimized initialNRSplit: 0.5336 (Score: 4634.9269)
+  Optimized upperBound: 0.7770 (Score: 4476.7102)
+  Optimized lowerBound: 0.0417 (Score: 4488.3897)
+  Optimized allocStep: 0.2224 (Score: 4352.3479)
+Optimization Cycle 12/20
+  Optimized initialNRSplit: 0.4799 (Score: 4678.7657)
+  Optimized upperBound: 0.8196 (Score: 4511.4710)
+  Optimized lowerBound: 0.0319 (Score: 4437.3969)
+  Optimized allocStep: 0.2480 (Score: 4736.5266)
+Optimization Cycle 13/20
+  Optimized initialNRSplit: 0.4658 (Score: 4639.8462)
+  Optimized upperBound: 0.8236 (Score: 4498.0432)
+  Optimized lowerBound: 0.0040 (Score: 4207.3092)
+  Optimized allocStep: 0.1474 (Score: 4360.9869)
+Optimization Cycle 14/20
+  Optimized initialNRSplit: 0.5341 (Score: 4320.3633)
+  Optimized upperBound: 0.8952 (Score: 4308.9694)
+  Optimized lowerBound: 0.0283 (Score: 4614.6141)
+  Optimized allocStep: 0.1000 (Score: 4395.0765)
+Optimization Cycle 15/20
+  Optimized initialNRSplit: 0.4216 (Score: 4321.3095)
+  Optimized upperBound: 0.6867 (Score: 4234.7293)
+  Optimized lowerBound: 0.0010 (Score: 4465.3097)
+  Optimized allocStep: 0.2516 (Score: 4444.3223)
+Optimization Cycle 16/20
+  Optimized initialNRSplit: 0.4923 (Score: 4568.0177)
+  Optimized upperBound: 0.7461 (Score: 4475.9552)
+  Optimized lowerBound: 0.0093 (Score: 4417.5267)
+  Optimized allocStep: 0.1469 (Score: 4577.8536)
+Optimization Cycle 17/20
+  Optimized initialNRSplit: 0.4921 (Score: 4610.0979)
+  Optimized upperBound: 0.6736 (Score: 4480.5829)
+  Optimized lowerBound: 0.0074 (Score: 4702.5541)
+  Optimized allocStep: 0.0629 (Score: 4649.0308)
+Optimization Cycle 18/20
+  Optimized initialNRSplit: 0.5293 (Score: 4227.7043)
+  Optimized upperBound: 0.7653 (Score: 4654.4012)
+  Optimized lowerBound: 0.0558 (Score: 4346.8201)
+  Optimized allocStep: 0.2149 (Score: 4427.7750)
+Optimization Cycle 19/20
+  Optimized initialNRSplit: 0.3478 (Score: 4033.4594)
+  Optimized upperBound: 0.9173 (Score: 4231.3782)
+  Optimized lowerBound: 0.0347 (Score: 4270.2070)
+  Optimized allocStep: 0.2240 (Score: 4223.7151)
+Optimization Cycle 20/20
+  Optimized initialNRSplit: 0.4284 (Score: 4383.6619)
+  Optimized upperBound: 0.9749 (Score: 4329.8405)
+  Optimized lowerBound: 0.0102 (Score: 4569.2939)
+  Optimized allocStep: 0.1445 (Score: 4372.3856)
+
+Optimization Complete.
+Best Parameters:
+    initialNRSplit: 0.4799
+        upperBound: 0.8196
+        lowerBound: 0.0319
+         allocStep: 0.2480
+
+Best Objective Score: 4937.3145
